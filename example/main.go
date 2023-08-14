@@ -2,17 +2,17 @@ package main
 
 import (
 	"os"
+	"log/slog"
 
 	"github.com/mattn/go-isatty"
-	"github.com/witchard/sloginit"
+	_ "github.com/witchard/sloginit/auto"
 )
 
 func main() {
 	tty := isatty.IsTerminal(os.Stderr.Fd())
 
-	log := sloginit.Logger()
-	log.Debug("debug", "tty", tty)
-	log.Info("info", "tty", tty)
-	log.Warn("warn", "tty", tty)
-	log.Error("error", "tty", tty)
+	slog.Debug("debug", "tty", tty)
+	slog.Info("info", "tty", tty)
+	slog.Warn("warn", "tty", tty)
+	slog.Error("error", "tty", tty)
 }

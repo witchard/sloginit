@@ -1,4 +1,9 @@
 // sloginit provides simple initialisation for the slog package.
+//
+// If the output is a TTY then you'll get colourful logs, otherwise JSON. This can be
+// overridden with the LOG_JSON=on environment variable. Log level can be overridden
+// with the LOG_LEVEL environment variable. You can also force these options by providing
+// relevant SlogOpt when calling Logger().
 package sloginit
 
 import (
@@ -86,6 +91,7 @@ func setOpts(options ...SlogOpt) opts {
 	return o
 }
 
+// Logger will create an slog.Logger using the environment and options provided.
 func Logger(options ...SlogOpt) *slog.Logger {
 	o := setOpts(options...)
 	var logger *slog.Logger
