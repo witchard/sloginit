@@ -1,4 +1,4 @@
-// sloginit provides simple initialisation for the slog package.
+// sloginit provides an opinionated simple initialisation for the slog package.
 //
 // If the output is a TTY then you'll get colourful logs, otherwise JSON. This can be
 // overridden with the LOG_JSON=on environment variable. Log level can be overridden
@@ -110,4 +110,9 @@ func Logger(options ...SlogOpt) *slog.Logger {
 		)
 	}
 	return logger
+}
+
+// Default will set the slog default logger to the result of passing options to Logger.
+func SetDefault(options ...SlogOpt) {
+	slog.SetDefault(Logger(options...))
 }

@@ -2,11 +2,9 @@
 package auto
 
 import (
-	"log/slog"
-
 	"github.com/witchard/sloginit"
 )
 
 func init() {
-	slog.SetDefault(sloginit.Logger())
+	sloginit.SetDefault()
 }

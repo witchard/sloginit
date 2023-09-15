@@ -29,4 +29,19 @@ func main() {
 }
 ```
 
-Or can be initialised directly so you can provide setup options.
+Or can be initialised directly so you can provide setup options:
+
+```go
+package main
+
+import (
+	"log/slog"
+
+	"github.com/witchard/sloginit"
+)
+
+func main() {
+	sloginit.SetDefault(sloginit.JSON)
+	slog.Info("hi", "format", "json")
+}
+```
